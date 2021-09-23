@@ -14,6 +14,7 @@ point, a free taxi at the nearest point is allocated.
 travels from an adjacent point to pick up the customer.
 -If no taxi is free at that time, booking is rejected
 Design modules for
+
 1) Call taxi booking
 Input 1:
 Customer ID: 1
@@ -22,6 +23,7 @@ Drop Point: B
 Pickup Time: 9
 Output 1: Taxi can be allotted.
 Taxi-1 is allotted
+
 Input 2:
 Customer ID: 2
 Pickup Point: B
@@ -30,6 +32,7 @@ Pickup Time: 9
 Output 2: Taxi can be allotted.
 Taxi-2 is allotted (Note: Since Taxi-1 would have completed its journey when second booking is done, so
 Taxi-2 from nearest point A which is free is allocated)
+
 Input 3:
 Customer ID: 3
 Pickup Point: B
@@ -37,6 +40,7 @@ Drop Point: C
 Pickup Time: 12
 Output 3: Taxi can be allotted.
 Taxi-1 is allotted
+
 2) Display the Taxi details
 Taxi No: Total Earnings:
 BookingID CustomerID From To PickupTime DropTime Amount
