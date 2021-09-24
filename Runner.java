@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Runner {
+    static   Scanner in=new Scanner(System.in);
     public static void main(String[] args){
         List<Taxi> taxis=CreateTaxis.createTaxi(4);
-        Scanner in=new Scanner(System.in);
         int id=1;
         while (true){
             System.out.println("1.Booking");
@@ -18,7 +18,7 @@ public class Runner {
             switch (choice){
                 case 1:
                    int customerId=id;
-                Booking booking=new Booking();
+                    Booking booking=new Booking();
                     System.out.println("Enter Pickup point");
                     char pickupPoint=in.next().charAt(0);
                     System.out.println("Enter Drop Point");
@@ -29,12 +29,11 @@ public class Runner {
                     booking.setPickupPoint(pickupPoint);
                     booking.setDropPoint(dropPoint);
                     booking.setPickupTime(pickupTime);
-
-                    if(pickupPoint < 'A' || dropPoint > 'F' || pickupPoint > 'F' || dropPoint < 'A')
-                    {
-                        System.out.println("Valid pickup and drop are A, B, C, D, E, F. Exitting");
-                        return;
+                    if (pickupPoint < 'A' || pickupPoint > 'F' || dropPoint > 'F' ||dropPoint < 'A') {
+                        System.out.println("Valid pickup and drop are A, B, C, D, E, F.Exiting");
+                        break;
                     }
+
                     List<Taxi> freeTaxis=CreateTaxis.getFreeTaxis(taxis,pickupTime,pickupPoint);
                     if(freeTaxis.size()==0){
                         System.out.println("No Taxi can be alloted.Exitting");
@@ -46,15 +45,16 @@ public class Runner {
                     break;
                 case 2:
                     for(Taxi t:taxis){
-                        t.printTaxiDetails();
+                        System.out.println(t.toString());
                     }
-                    for (Taxi t:taxis){
-                        t.printDetails();
-                    }
+
+                         Trip.printDetails(taxis);
                     break;
                 case 3:
-                    break;
+                    return;
             }
         }
     }
+
+
 }
