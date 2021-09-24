@@ -5,13 +5,14 @@ import java.util.List;
 
 public class Taxi {
   static  int taxiCount=0;
+  private int driverId;
     private int id;
    private boolean booked;
    public char currentSpot;
    public int freeTime;
    private int totalEarnings;
    private List<String> trip=new ArrayList<>();
-    private String[] trips;
+
 
 
     public Taxi(){
@@ -22,8 +23,19 @@ public class Taxi {
     List<String> trip= new ArrayList<>();
     taxiCount+=1;
     id=taxiCount;
+    driverId=taxiCount;
 
 }
+
+    public int getDriverId() {
+        return driverId;
+    }
+
+    public void setDriverId(int driverId) {
+        this.driverId = driverId;
+    }
+
+
     public static int getTaxiCount() {
         return taxiCount;
     }
@@ -79,21 +91,11 @@ public class Taxi {
     public void setTrip(List<String > trip,String tripDetail) {
         this.trip.add(tripDetail);
     }
-   public void printDetails()
-    {
-        System.out.println("Taxi - "+ this.id + " Total Earnings - " + this.totalEarnings);
-        System.out.println("TaxiID    BookingID    CustomerID    From    To    PickupTime    DropTime    Amount");
 
-        for(String trip : trips)
-        {
-            System.out.println(id + "          " + trip);
-        }
-        System.out.println("--------------------------------------------------------------------------------------");
-    }
 
-    public void printTaxiDetails()
-    {
-        System.out.println("Taxi - "+ this.id + " Total Earnings - " + this.totalEarnings + " Current spot - " + this.currentSpot +" Free Time - " + this.freeTime);
+
+    public String toString(){
+        return "Taxi - "+ this.id +" Driver Id "+driverId+" Total Earnings - " + this.totalEarnings + " Current spot - " + this.currentSpot +" Free Time - " + this.freeTime;
     }
 
 
